@@ -17,6 +17,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "module": "^2.0.0",
-    "mongoose": "^9.9.1"
+    "mongoose": "^9.9.1",
+    "serverless-http": "^4.0.0"
   }
 }

@@ -1,16 +1,28 @@
 const express = require("express");
+const cors = require("cors");
+
+const connectDb = require("./config/database");
+
+const userRoutes = require("./routes/user.routes");
+
 const app = express();
 
-app.use(express.json())
-app.use(express.urlencoded( {extended:true}))
+connectDb();
 
-const userRoutes=require("./routes/user.routes");
 
-app.get("/",(req,res)=>{
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.get("/", (req, res) => {
     res.json({
-        message:"welcome to Zomato Home Page"
+        success: true,
+        message: "Welcome to Zomato Backend API 🚀"
     });
 });
 
-app.use("/api/users",userRoutes);
+// User Routes
+app.use("/api/users", userRoutes);
+
 module.exports = app;
